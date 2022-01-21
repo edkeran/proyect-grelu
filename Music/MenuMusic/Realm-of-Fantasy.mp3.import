@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Realm-of-Fantasy.mp3-dca804a9184b34c309d988823f391bbe.mp3str"
+
+[deps]
+
+source_file="res://Music/MenuMusic/Realm-of-Fantasy.mp3"
+dest_files=[ "res://.import/Realm-of-Fantasy.mp3-dca804a9184b34c309d988823f391bbe.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

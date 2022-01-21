@@ -1,0 +1,174 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://Assets/Sprites/MainForest/MainTree.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sprites/MainForest/SwordColline.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/MainForest/Glen.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/MainForest/backgroundMenu.png" type="Texture" id=4]
+[ext_resource path="res://Assets/LightTextures/light.png" type="Texture" id=5]
+[ext_resource path="res://ScenesGame/MainMenu/Iluminacion.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Sprites/MainForest/leaf.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/PartnersCharacters/SpiritGuideIdle.png" type="Texture" id=8]
+[ext_resource path="res://Hud/MenuButtons/StartGameButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ScenesGame/MainMenu/MainMenu.gd" type="Script" id=10]
+[ext_resource path="res://ScenesGame/MainMenu/Camara.gd" type="Script" id=11]
+[ext_resource path="res://Hud/MenuButtons/LoadGame.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Music/MenuMusic/Realm-of-Fantasy.mp3" type="AudioStream" id=13]
+[ext_resource path="res://Hud/MenuButtons/ExitGame.tscn" type="PackedScene" id=14]
+
+[sub_resource type="ParticlesMaterial" id=1]
+lifetime_randomness = 0.24
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 20.51
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 8 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 2.0
+} ]
+
+[node name="MenuRootNode" type="Node"]
+script = ExtResource( 10 )
+
+[node name="BackGround" type="TextureRect" parent="."]
+margin_right = 801.0
+margin_bottom = 602.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeafParticles" type="Particles2D" parent="."]
+position = Vector2( 519.962, 300.66 )
+scale = Vector2( 2.2, 2.2 )
+lifetime = 20.0
+randomness = 0.44
+process_material = SubResource( 1 )
+texture = ExtResource( 7 )
+
+[node name="LeafParticles2" type="Particles2D" parent="."]
+position = Vector2( 250, 335.66 )
+scale = Vector2( 2.2, 2.2 )
+lifetime = 20.0
+preprocess = 0.4
+randomness = 0.45
+process_material = SubResource( 1 )
+texture = ExtResource( 7 )
+
+[node name="SpiritGuide" type="AnimatedSprite" parent="."]
+position = Vector2( 545.616, 42 )
+scale = Vector2( 1.35457, 1.50057 )
+frames = SubResource( 4 )
+animation = "Idle"
+playing = true
+
+[node name="SpiritGuide2" type="AnimatedSprite" parent="."]
+position = Vector2( 141.493, 223.586 )
+scale = Vector2( 1.35457, 1.50057 )
+frames = SubResource( 4 )
+animation = "Idle"
+playing = true
+
+[node name="MainTree" type="TextureRect" parent="."]
+margin_left = 170.242
+margin_top = 5.25995
+margin_right = 647.242
+margin_bottom = 601.26
+rect_pivot_offset = Vector2( -475.493, 858.122 )
+texture = ExtResource( 1 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Mountains" type="TextureRect" parent="."]
+margin_left = -86.6568
+margin_top = 150.52
+margin_right = 510.343
+margin_bottom = 649.52
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SwordGlen" type="TextureRect" parent="."]
+margin_left = 218.0
+margin_top = 191.0
+margin_right = 853.0
+margin_bottom = 628.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Iluminacion" type="Light2D" parent="CanvasLayer"]
+modulate = Color( 0.784314, 0.152941, 0.152941, 1 )
+position = Vector2( 604.518, 187.578 )
+scale = Vector2( 1.4744, 1.13529 )
+texture = ExtResource( 5 )
+color = Color( 0.486275, 0.529412, 0.341176, 1 )
+energy = 1.25
+shadow_enabled = true
+shadow_color = Color( 0.737255, 0.133333, 0.133333, 0 )
+shadow_gradient_length = 660.6
+script = ExtResource( 6 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.682353, 0.701961, 0.788235, 1 )
+
+[node name="StartGame" parent="." instance=ExtResource( 9 )]
+focus_neighbour_bottom = NodePath("../LoadGame")
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+
+[node name="LoadGame" parent="." instance=ExtResource( 12 )]
+margin_left = 347.405
+margin_top = 320.154
+margin_right = 434.405
+margin_bottom = 400.154
+focus_neighbour_top = NodePath("../StartGame")
+focus_neighbour_bottom = NodePath("../ExitGame")
+mouse_filter = 2
+
+[node name="Camara" type="Camera2D" parent="."]
+position = Vector2( 401.31, 300.794 )
+current = true
+script = ExtResource( 11 )
+
+[node name="MenuSongGame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
+
+[node name="ExitGame" parent="." instance=ExtResource( 14 )]
+margin_left = 321.631
+margin_top = 437.051
+margin_right = 465.631
+margin_bottom = 600.051
+focus_neighbour_top = NodePath("../LoadGame")
+mouse_filter = 2
+
+[node name="TimerEsceneChange" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="pressed" from="StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="animation_completed" from="Camara" to="." method="_on_Camara_animation_completed"]
+[connection signal="pressed" from="ExitGame" to="." method="_on_ExitGame_pressed"]
+[connection signal="timeout" from="TimerEsceneChange" to="." method="_on_TimerEsceneChange_timeout"]

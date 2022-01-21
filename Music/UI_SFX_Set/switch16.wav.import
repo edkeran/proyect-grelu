@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/switch16.wav-aed789cdead08bc68db870a6ed072696.sample"
+
+[deps]
+
+source_file="res://Music/UI_SFX_Set/switch16.wav"
+dest_files=[ "res://.import/switch16.wav-aed789cdead08bc68db870a6ed072696.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

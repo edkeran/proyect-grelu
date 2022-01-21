@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/negative.wav-f25e7bd50868069f48b21e11f11cf574.sample"
+
+[deps]
+
+source_file="res://Music/GUI_Sound_Effects_by_Lokif/negative.wav"
+dest_files=[ "res://.import/negative.wav-f25e7bd50868069f48b21e11f11cf574.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Fawu.wav-8ef5056c4aaf51495c8d64b0db5ce896.sample"
+
+[deps]
+
+source_file="res://Music/FX_Character_Talking/Fawu.wav"
+dest_files=[ "res://.import/Fawu.wav-8ef5056c4aaf51495c8d64b0db5ce896.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

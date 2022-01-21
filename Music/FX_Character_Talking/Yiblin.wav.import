@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Yiblin.wav-bbe3d1fca68930f94a284338f8d166ad.sample"
+
+[deps]
+
+source_file="res://Music/FX_Character_Talking/Yiblin.wav"
+dest_files=[ "res://.import/Yiblin.wav-bbe3d1fca68930f94a284338f8d166ad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

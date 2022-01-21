@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/Terrain/terrain.png" type="Texture" id=1]
+[ext_resource path="res://ButtonAction.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.184, 10.428 )
+
+[node name="Button" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="ButtonPressed" type="Sprite" parent="."]
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 286.25, 64.25, 97, 94 )
+
+[node name="ButtonIdle" type="Sprite" parent="."]
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( -4.75, 64.25, 102, 95.624 )
+
+[node name="Collition" type="CollisionShape2D" parent="."]
+position = Vector2( 1.5, 0.5 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="." to="." method="_on_Button_area_entered"]
