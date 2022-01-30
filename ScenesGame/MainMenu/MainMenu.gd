@@ -48,7 +48,6 @@ func instance_joypad():
 		InputMap.action_add_event("ui_down", eventJoypadDown)
 		InputMap.action_add_event("ui_up", eventJoypadUp)
 
-
 #Close The Game
 func _on_ExitGame_pressed():
 	var exit_song = AudioStreamPlayer.new()

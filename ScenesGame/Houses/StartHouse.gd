@@ -6,6 +6,12 @@ var cajaDeTexto
 func _ready():
 	if($CanvasModulate.visible):
 		$Player/Light2D.visible = true
+	var sound = AudioStreamPlayer.new()
+	sound.stream = preload("res://Music/SongsZones_Soundtrack/Treading The Unknown - MP3.mp3")
+	sound.autoplay = true
+	add_child(sound)
+
+		
 
 func _on_Player_interactItem():
 	if(presentaMensaje):

@@ -73,6 +73,7 @@ position = Vector2( 545.616, 42 )
 scale = Vector2( 1.35457, 1.50057 )
 frames = SubResource( 4 )
 animation = "Idle"
+frame = 1
 playing = true
 
 [node name="SpiritGuide2" type="AnimatedSprite" parent="."]
@@ -80,6 +81,7 @@ position = Vector2( 141.493, 223.586 )
 scale = Vector2( 1.35457, 1.50057 )
 frames = SubResource( 4 )
 animation = "Idle"
+frame = 1
 playing = true
 
 [node name="MainTree" type="TextureRect" parent="."]
@@ -120,15 +122,9 @@ __meta__ = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Iluminacion" type="Light2D" parent="CanvasLayer"]
-modulate = Color( 0.784314, 0.152941, 0.152941, 1 )
-position = Vector2( 604.518, 187.578 )
-scale = Vector2( 1.4744, 1.13529 )
+position = Vector2( 714.5, 143.75 )
+scale = Vector2( 1.03223, 0.877441 )
 texture = ExtResource( 5 )
-color = Color( 0.486275, 0.529412, 0.341176, 1 )
-energy = 1.25
-shadow_enabled = true
-shadow_color = Color( 0.737255, 0.133333, 0.133333, 0 )
-shadow_gradient_length = 660.6
 script = ExtResource( 6 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
