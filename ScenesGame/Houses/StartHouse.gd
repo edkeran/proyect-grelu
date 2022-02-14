@@ -11,8 +11,6 @@ func _ready():
 	sound.autoplay = true
 	add_child(sound)
 
-		
-
 func _on_Player_interactItem():
 	if(presentaMensaje):
 		cajaDeTexto = preload("res://Hud/TextBoxDialog/dialogHud.tscn").instance()

@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
 signal interactItem
+signal close_inventory
 export var speed = 180
+var inventoryComponent = null
 var isGamepad = false
 var defautlDevice
 var velocity = Vector2()
@@ -9,6 +11,9 @@ var allowMovement = true
 var activeSprite = null
 var currentPlayerColor =  Color("#39A4D2")
 var currentVoice = "Fawu.wav"
+var currentCharacterName = "Fawu"
+var isChangeCharacterLocked = false
+var characterImagesNeutral = "res://Assets/Sprites/Playeable/Expresions/Fawu/NeutralGame.png"
 
 func _ready():
 	$CharacterSelector/Container.hide()
@@ -21,12 +26,8 @@ func _physics_process(delta):
 		walkPlayer(delta)
 	else:
 		stop_animation()
-	#Check if we change the character
-	if(Input.is_action_just_pressed("ui_change") and !$CharacterSelector/Container.is_visible_in_tree()):
-		$CharacterSelector/Container.show()
-		$CharacterSelector/Container/Left.grab_focus()
-		#Lock Movement Player
-		allowMovement = false
+	control_character_selector()
+	
 	
 func configController():
 	Input.connect("joy_connection_changed",self,"joy_con_changed")
@@ -101,20 +102,64 @@ func stop_animation():
 
 func change_character():
 	var currentPlayer = $CharacterSelector.currentModulatePlayer
+	var entredInventory = false
 	match currentPlayer:
-		"Player": 
+		Constants.selectionsPlayer.PLAYER: 
 			pass
-		"Fawu":
+		Constants.selectionsPlayer.FAWU:
 			$Sprite1Player.show()
 			$Sprite2Player.hide()
 			currentPlayerColor =  Color("#39A4D2")
 			activeSprite = $Sprite1Player
 			currentVoice = "Fawu.wav"
-		"Yiblin":
+			currentCharacterName = "Fawu"
+		Constants.selectionsPlayer.YIBLIN:
 			$Sprite1Player.hide()
 			$Sprite2Player.show()
 			activeSprite = $Sprite2Player
 			currentPlayerColor =  Color("#EA1A1A")
 			currentVoice = "Yiblin.wav"
+			currentCharacterName = "Yiblin"
+		Constants.selectionsPlayer.INVENTORY:
+			entredInventory = true
+			begin_inventory()
 	$CharacterSelector/Container.hide()
-	allowMovement = true
+	allowMovement = !entredInventory
+
+func control_character_selector():
+	if(Input.is_action_just_pressed("ui_change") 
+		and !$CharacterSelector/Container.is_visible_in_tree()
+		and !isChangeCharacterLocked):
+		$CharacterSelector/Container.show()
+		$CharacterSelector/Container/Left.grab_focus()
+		allowMovement = false
+	elif(Input.is_action_just_pressed("ui_change") and $CharacterSelector/Container.is_visible_in_tree()
+		and !allowMovement):
+		$CharacterSelector/Container.hide()
+		allowMovement = true
+		song_close_menu()
+	elif(Input.is_action_just_pressed("ui_change") and isChangeCharacterLocked):
+		end_inventory()
+
+func begin_inventory():
+	inventoryComponent = preload("res://Hud/Inventory/InventoryMenu.tscn").instance()
+	inventoryComponent._set_color_modulate(currentPlayerColor)
+	inventoryComponent._set_character_name(currentCharacterName)
+	inventoryComponent._set_image_character(characterImagesNeutral)
+	isChangeCharacterLocked = true
+	self.add_child(inventoryComponent)
+
+func end_inventory():
+	if(inventoryComponent != null):
+		inventoryComponent.queue_free()
+		isChangeCharacterLocked = false
+		$CharacterSelector/Container.hide()
+		allowMovement = true
+		song_close_menu()
+		
+func song_close_menu():
+	var sound = AudioStreamPlayer.new()
+	sound.stream = preload("res://Music/UI_SFX_Set/switch27.wav")
+	sound.autoplay = true
+	sound.connect("finished", sound, "queue_free")
+	add_child(sound)

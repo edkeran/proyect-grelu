@@ -9,13 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Object",
+"class": "Constants",
+"language": "GDScript",
+"path": "res://ClassFiles/Constants.gd"
+}, {
 "base": "Node",
 "class": "EnviromentScene",
 "language": "GDScript",
 "path": "res://ClassFiles/EnviromentScene.gd"
+}, {
+"base": "Reference",
+"class": "InventoryItem",
+"language": "GDScript",
+"path": "res://ClassFiles/ItemInventory.gd"
 } ]
 _global_script_class_icons={
-"EnviromentScene": ""
+"Constants": "",
+"EnviromentScene": "",
+"InventoryItem": ""
 }
 
 [application]

@@ -1,0 +1,286 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Assets/Hud/Fonts/Ticketing.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Hud/Arrow.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Playeable/Expresions/Fawu/NeutralGame.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Hud/EmptyItemBox.png" type="Texture" id=4]
+[ext_resource path="res://Hud/Inventory/InventoryMenu.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Hud/EmptyItemBoxSelected.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="Theme" id=5]
+Panel/styles/panel = SubResource( 14 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 26
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 19
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=16]
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.501961, 0.501961, 0.501961, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+expand_margin_left = 6.0
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 1 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Theme" id=9]
+Button/colors/font_color = Color( 0, 0, 0, 1 )
+Button/colors/font_color_disabled = Color( 0, 0, 0, 0.2 )
+Button/colors/font_color_focus = Color( 0, 0, 0, 1 )
+Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
+Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
+Button/fonts/font = SubResource( 16 )
+Button/styles/focus = SubResource( 6 )
+Button/styles/normal = SubResource( 8 )
+Button/styles/pressed = SubResource( 15 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 19
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+anti_aliasing = false
+
+[sub_resource type="Theme" id=11]
+Panel/styles/panel = SubResource( 10 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "ArrowAnimation"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowInventory:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -148, 17 ), Vector2( -100, 17 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("ArrowInventory:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -86, 17 ) ]
+}
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="PanelContainer" type="Panel" parent="."]
+margin_top = 11.0
+margin_right = 285.0
+margin_bottom = 460.0
+theme = SubResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharacterName" type="RichTextLabel" parent="PanelContainer"]
+margin_left = 143.0
+margin_top = 7.0
+margin_right = 273.0
+margin_bottom = 118.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Character Name"
+meta_underlined = false
+text = "Character Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeStatus" type="RichTextLabel" parent="PanelContainer"]
+margin_left = 8.0
+margin_top = 140.0
+margin_right = 255.0
+margin_bottom = 163.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Life: 25"
+text = "Life: 25"
+fit_content_height = true
+
+[node name="ItemsButton" type="Button" parent="PanelContainer"]
+margin_left = 5.0
+margin_top = 171.0
+margin_right = 124.0
+margin_bottom = 199.0
+theme = SubResource( 9 )
+custom_fonts/font = SubResource( 3 )
+text = "Items"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasImageCharacter" type="CanvasLayer" parent="PanelContainer"]
+layer = 2
+
+[node name="ImageCharacter" type="TextureRect" parent="PanelContainer/CanvasImageCharacter"]
+margin_left = 9.0
+margin_top = 16.0
+margin_right = 129.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 120, 120 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelItemsInventory" type="Panel" parent="."]
+margin_left = 423.0
+margin_top = 128.0
+margin_right = 672.0
+margin_bottom = 268.0
+theme = SubResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="PanelItemsInventory"]
+margin_left = 3.0
+margin_top = 4.0
+margin_right = 271.0
+margin_bottom = 136.0
+rect_scale = Vector2( 0.9, 1 )
+columns = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot1" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="Slot2" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="Slot3" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="Slot4" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="Slot5" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
+margin_top = 68.0
+margin_right = 64.0
+margin_bottom = 132.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="Slot6" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
+margin_left = 68.0
+margin_top = 68.0
+margin_right = 132.0
+margin_bottom = 132.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="Slot7" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
+margin_left = 136.0
+margin_top = 68.0
+margin_right = 200.0
+margin_bottom = 132.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="Slot8" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
+margin_left = 204.0
+margin_top = 68.0
+margin_right = 268.0
+margin_bottom = 132.0
+texture_normal = ExtResource( 4 )
+texture_focused = ExtResource( 6 )
+stretch_mode = 2
+
+[node name="ArrowInventory" type="TextureRect" parent="PanelItemsInventory"]
+margin_left = -86.0
+margin_top = 17.0
+margin_right = -22.0
+margin_bottom = 81.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelItemsInventory/ArrowInventory"]
+root_node = NodePath("../..")
+autoplay = "ArrowAnimation"
+anims/ArrowAnimation = SubResource( 12 )
+anims/RESET = SubResource( 13 )
+
+[connection signal="focus_entered" from="PanelContainer/ItemsButton" to="." method="_on_ItemsButton_focus_entered"]
