@@ -45,8 +45,18 @@ func instance_joypad():
 		eventJoypadUp.device = defaultDevice
 		eventJoypadUp.axis = JOY_AXIS_1
 		eventJoypadUp.axis_value = -0.3
+		var eventJoypadLeft = InputEventJoypadMotion.new()
+		eventJoypadLeft.device = defaultDevice
+		eventJoypadLeft.axis = JOY_AXIS_0
+		eventJoypadLeft.axis_value = -0.3
+		var eventJoypadRight = InputEventJoypadMotion.new()
+		eventJoypadRight.device = defaultDevice
+		eventJoypadRight.axis = JOY_AXIS_0
+		eventJoypadRight.axis_value = 0.3
 		InputMap.action_add_event("ui_down", eventJoypadDown)
 		InputMap.action_add_event("ui_up", eventJoypadUp)
+		InputMap.action_add_event("ui_left", eventJoypadLeft)
+		InputMap.action_add_event("ui_right", eventJoypadRight)
 
 #Close The Game
 func _on_ExitGame_pressed():

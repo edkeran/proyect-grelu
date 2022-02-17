@@ -4,6 +4,7 @@ var optionSelectedPlayerInventory = null
 var characterName = ""
 var imageCharacter = null
 var isShowItemsInventory = false
+var soundItemInventory = true
 
 func _process(delta):
 	if(Input.is_action_just_pressed("ui_interact")):
@@ -14,7 +15,7 @@ func _process(delta):
 			sound.autoplay = true
 			add_child(sound)
 			isShowItemsInventory = true
-			#Selecciona el primer elementos de la lista de inventario
+			soundItemInventory = false
 			$PanelItemsInventory/GridContainer/Slot1.grab_focus()
 		elif(!isShowItemsInventory):
 			$PanelItemsInventory.hide()
@@ -46,4 +47,13 @@ func _on_ItemsButton_focus_entered():
 	
 func hide_items_array_list():
 	$PanelItemsInventory.hide()
-	
+
+func entered_item_cell_song_focus():
+	if(soundItemInventory):
+		var sound = AudioStreamPlayer.new()
+		sound.stream = preload("res://Music/UI_SFX_Set/switch11.wav")
+		sound.autoplay = true
+		sound.connect("finished", sound, "queue_free")
+		add_child(sound)
+	else:
+		soundItemInventory = true

@@ -284,3 +284,11 @@ anims/ArrowAnimation = SubResource( 12 )
 anims/RESET = SubResource( 13 )
 
 [connection signal="focus_entered" from="PanelContainer/ItemsButton" to="." method="_on_ItemsButton_focus_entered"]
+[connection signal="focus_entered" from="PanelItemsInventory/GridContainer/Slot1" to="." method="entered_item_cell_song_focus"]
+[connection signal="focus_entered" from="PanelItemsInventory/GridContainer/Slot2" to="." method="entered_item_cell_song_focus"]
+[connection signal="focus_entered" from="PanelItemsInventory/GridContainer/Slot3" to="." method="entered_item_cell_song_focus"]
+[connection signal="focus_entered" from="PanelItemsInventory/GridContainer/Slot4" to="." method="entered_item_cell_song_focus"]
+[connection signal="focus_entered" from="PanelItemsInventory/GridContainer/Slot5" to="." method="entered_item_cell_song_focus"]
+[connection signal="focus_entered" from="PanelItemsInventory/GridContainer/Slot6" to="." method="entered_item_cell_song_focus"]
+[connection signal="focus_entered" from="PanelItemsInventory/GridContainer/Slot7" to="." method="entered_item_cell_song_focus"]
+[connection signal="focus_entered" from="PanelItemsInventory/GridContainer/Slot8" to="." method="entered_item_cell_song_focus"]
