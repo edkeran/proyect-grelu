@@ -73,7 +73,6 @@ position = Vector2( 545.616, 42 )
 scale = Vector2( 1.35457, 1.50057 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 1
 playing = true
 
 [node name="SpiritGuide2" type="AnimatedSprite" parent="."]
@@ -81,7 +80,6 @@ position = Vector2( 141.493, 223.586 )
 scale = Vector2( 1.35457, 1.50057 )
 frames = SubResource( 4 )
 animation = "Idle"
-frame = 1
 playing = true
 
 [node name="MainTree" type="TextureRect" parent="."]
@@ -115,9 +113,6 @@ margin_bottom = 628.0
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -131,6 +126,10 @@ script = ExtResource( 6 )
 color = Color( 0.682353, 0.701961, 0.788235, 1 )
 
 [node name="StartGame" parent="." instance=ExtResource( 9 )]
+margin_left = 318.0
+margin_top = 54.0
+margin_right = 460.0
+margin_bottom = 176.0
 focus_neighbour_bottom = NodePath("../LoadGame")
 mouse_filter = 2
 mouse_default_cursor_shape = 2

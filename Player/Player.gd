@@ -5,7 +5,7 @@ signal close_inventory
 export var speed = 180
 var inventoryComponent = null
 var isGamepad = false
-var defautlDevice
+var defautlDevice = null
 var velocity = Vector2()
 var allowMovement = true
 var activeSprite = null
@@ -14,6 +14,7 @@ var currentVoice = "Fawu.wav"
 var currentCharacterName = "Fawu"
 var isChangeCharacterLocked = false
 var characterImagesNeutral = "res://Assets/Sprites/Playeable/Expresions/Fawu/NeutralGame.png"
+var inventoryItemsPlayer = {"Fawu": {}, "Yiblin" : {}}
 
 func _ready():
 	$CharacterSelector/Container.hide()
@@ -27,12 +28,12 @@ func _physics_process(delta):
 	else:
 		stop_animation()
 	control_character_selector()
-	
-	
+
 func configController():
 	Input.connect("joy_connection_changed",self,"joy_con_changed")
 	isGamepad = Input.get_connected_joypads().size() > 0
-	defautlDevice = Input.get_connected_joypads().front()
+	if(isGamepad):
+		defautlDevice = Input.get_connected_joypads().front()
 
 func walkPlayer(delta):
 	velocity = Vector2()
@@ -146,6 +147,7 @@ func begin_inventory():
 	inventoryComponent._set_color_modulate(currentPlayerColor)
 	inventoryComponent._set_character_name(currentCharacterName)
 	inventoryComponent._set_image_character(characterImagesNeutral)
+	inventoryComponent.load_items_player(inventoryItemsPlayer[currentCharacterName])
 	isChangeCharacterLocked = true
 	self.add_child(inventoryComponent)
 
@@ -163,3 +165,18 @@ func song_close_menu():
 	sound.autoplay = true
 	sound.connect("finished", sound, "queue_free")
 	add_child(sound)
+
+func get_object_world(obj):
+	var mapItemsCharacter = inventoryItemsPlayer[currentCharacterName]
+	if(not mapItemsCharacter.has(obj.inventoryItemImage)):
+		var itmInventory = InventoryItem.new()
+		itmInventory.image = obj.inventoryItemImage
+		itmInventory.isHealthObject = true
+		itmInventory.isKeyObject = false
+		itmInventory.quantity += 1
+		mapItemsCharacter[obj.inventoryItemImage] = itmInventory
+	else:
+		var objectInventory = mapItemsCharacter[obj.inventoryItemImage]
+		objectInventory.quantity += 1
+		mapItemsCharacter[obj.inventoryItemImage] = objectInventory
+	obj.queue_free()

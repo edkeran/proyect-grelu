@@ -181,25 +181,18 @@ __meta__ = {
 }
 
 [node name="PanelItemsInventory" type="Panel" parent="."]
-margin_left = 423.0
-margin_top = 128.0
-margin_right = 672.0
-margin_bottom = 268.0
+margin_left = 434.0
+margin_top = 125.0
+margin_right = 717.0
+margin_bottom = 278.0
 theme = SubResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="GridContainer" type="GridContainer" parent="PanelItemsInventory"]
-margin_left = 3.0
-margin_top = 4.0
-margin_right = 271.0
-margin_bottom = 136.0
-rect_scale = Vector2( 0.9, 1 )
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 269.0
+margin_bottom = 135.0
 columns = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Slot1" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
 margin_right = 64.0
@@ -207,6 +200,19 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 6 )
 stretch_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelItemsInventory/GridContainer/Slot1"]
+layer = 5
+
+[node name="ImageSlot" type="TextureRect" parent="PanelItemsInventory/GridContainer/Slot1/CanvasLayer"]
+margin_left = 448.0
+margin_top = 139.0
+margin_right = 512.0
+margin_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.8, 0.8 )
+stretch_mode = 1
 
 [node name="Slot2" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
 margin_left = 68.0
@@ -216,6 +222,19 @@ texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 6 )
 stretch_mode = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelItemsInventory/GridContainer/Slot2"]
+layer = 5
+
+[node name="ImageSlot" type="TextureRect" parent="PanelItemsInventory/GridContainer/Slot2/CanvasLayer"]
+margin_left = 516.0
+margin_top = 139.0
+margin_right = 580.0
+margin_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.8, 0.8 )
+stretch_mode = 1
+
 [node name="Slot3" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
 margin_left = 136.0
 margin_right = 200.0
@@ -223,6 +242,19 @@ margin_bottom = 64.0
 texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 6 )
 stretch_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelItemsInventory/GridContainer/Slot3"]
+layer = 5
+
+[node name="ImageSlot" type="TextureRect" parent="PanelItemsInventory/GridContainer/Slot3/CanvasLayer"]
+margin_left = 584.0
+margin_top = 139.0
+margin_right = 648.0
+margin_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.8, 0.8 )
+stretch_mode = 1
 
 [node name="Slot4" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
 margin_left = 204.0
@@ -232,6 +264,19 @@ texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 6 )
 stretch_mode = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelItemsInventory/GridContainer/Slot4"]
+layer = 5
+
+[node name="ImageSlot" type="TextureRect" parent="PanelItemsInventory/GridContainer/Slot4/CanvasLayer"]
+margin_left = 652.0
+margin_top = 139.0
+margin_right = 716.0
+margin_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.8, 0.8 )
+stretch_mode = 1
+
 [node name="Slot5" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
 margin_top = 68.0
 margin_right = 64.0
@@ -239,6 +284,19 @@ margin_bottom = 132.0
 texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 6 )
 stretch_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelItemsInventory/GridContainer/Slot5"]
+layer = 5
+
+[node name="ImageSlot" type="TextureRect" parent="PanelItemsInventory/GridContainer/Slot5/CanvasLayer"]
+margin_left = 448.0
+margin_top = 207.0
+margin_right = 512.0
+margin_bottom = 271.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.8, 0.8 )
+stretch_mode = 1
 
 [node name="Slot6" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
 margin_left = 68.0
@@ -249,6 +307,19 @@ texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 6 )
 stretch_mode = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelItemsInventory/GridContainer/Slot6"]
+layer = 5
+
+[node name="ImageSlot" type="TextureRect" parent="PanelItemsInventory/GridContainer/Slot6/CanvasLayer"]
+margin_left = 516.0
+margin_top = 207.0
+margin_right = 580.0
+margin_bottom = 271.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.8, 0.8 )
+stretch_mode = 1
+
 [node name="Slot7" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
 margin_left = 136.0
 margin_top = 68.0
@@ -257,6 +328,19 @@ margin_bottom = 132.0
 texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 6 )
 stretch_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelItemsInventory/GridContainer/Slot7"]
+layer = 5
+
+[node name="ImageSlot" type="TextureRect" parent="PanelItemsInventory/GridContainer/Slot7/CanvasLayer"]
+margin_left = 584.0
+margin_top = 207.0
+margin_right = 648.0
+margin_bottom = 271.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.8, 0.8 )
+stretch_mode = 1
 
 [node name="Slot8" type="TextureButton" parent="PanelItemsInventory/GridContainer"]
 margin_left = 204.0
@@ -267,15 +351,25 @@ texture_normal = ExtResource( 4 )
 texture_focused = ExtResource( 6 )
 stretch_mode = 2
 
+[node name="CanvasLayer" type="CanvasLayer" parent="PanelItemsInventory/GridContainer/Slot8"]
+layer = 5
+
+[node name="ImageSlot" type="TextureRect" parent="PanelItemsInventory/GridContainer/Slot8/CanvasLayer"]
+margin_left = 652.0
+margin_top = 207.0
+margin_right = 716.0
+margin_bottom = 271.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_scale = Vector2( 0.8, 0.8 )
+stretch_mode = 1
+
 [node name="ArrowInventory" type="TextureRect" parent="PanelItemsInventory"]
 margin_left = -86.0
 margin_top = 17.0
 margin_right = -22.0
 margin_bottom = 81.0
 texture = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PanelItemsInventory/ArrowInventory"]
 root_node = NodePath("../..")

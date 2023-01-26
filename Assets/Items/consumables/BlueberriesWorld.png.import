@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Yiblin.png-b683beb3d9a4e4ec9f474f86ca39a782.stex"
+path="res://.import/BlueberriesWorld.png-5eb2b1b807c34be8fafc47ec8476add9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Playeable/Yiblin.png"
-dest_files=[ "res://.import/Yiblin.png-b683beb3d9a4e4ec9f474f86ca39a782.stex" ]
+source_file="res://Assets/Items/consumables/BlueberriesWorld.png"
+dest_files=[ "res://.import/BlueberriesWorld.png-5eb2b1b807c34be8fafc47ec8476add9.stex" ]
 
 [params]
 
@@ -24,7 +24,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

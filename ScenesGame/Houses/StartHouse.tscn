@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Assets/Sprites/Houses/HouseElements/TileAssets/interior.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Sprites/Houses/HouseElements/StairHand.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sprites/Terrain/terrain.png" type="Texture" id=5]
 [ext_resource path="res://Assets/LightTextures/light.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Items/consumables/ConsumableWorldItem.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 0, 32, 0, 30, 2, 28, 4, 26, 6, 24, 8, 16, 16, 0, 32, 0, 28, 2, 26, 28, 0 )
@@ -685,6 +686,16 @@ energy = 0.7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Downstairs"]
 position = Vector2( -261.693, 57.6768 )
 shape = SubResource( 35 )
+
+[node name="ConsumableWorld" parent="." instance=ExtResource( 7 )]
+position = Vector2( 835, 191 )
+inventoryItemImage = "Blueberries.png"
+worldItemImage = "BlueberriesWorld.png"
+
+[node name="ConsumableWorld2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 305, 311 )
+inventoryItemImage = "StrawBerry.png"
+worldItemImage = "StrawberryWorld.png"
 
 [connection signal="area_entered" from="EventRoomChimne" to="." method="_on_EventRoomChimne_area_entered"]
 [connection signal="body_exited" from="EventRoomChimne" to="." method="_on_EventRoomChimne_body_exited"]

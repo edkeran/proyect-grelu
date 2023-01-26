@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Items/consumables/ConsumableWorldItem.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.875, 21.625 )
+
+[node name="ConsumableWorld" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="SpriteConsumable" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+
+[node name="AreaConsumable" type="Area2D" parent="."]
+
+[node name="CollisionConsumable" type="CollisionShape2D" parent="AreaConsumable"]
+position = Vector2( 0, -1 )
+shape = SubResource( 1 )
+
+[connection signal="area_entered" from="AreaConsumable" to="." method="_on_AreaConsumable_area_entered"]
+[connection signal="area_exited" from="AreaConsumable" to="." method="_on_AreaConsumable_area_exited"]

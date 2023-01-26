@@ -35,8 +35,8 @@ func modulate_canvas(delta):
 
 func instance_joypad():
 	Input.connect("joy_connection_changed",self,"joy_con_changed")
-	var defaultDevice = Input.get_connected_joypads().front()
-	if(defaultDevice != null):
+	if(Input.get_connected_joypads().size() > 0):
+		var defaultDevice = Input.get_connected_joypads().front()
 		var eventJoypadDown = InputEventJoypadMotion.new()
 		eventJoypadDown.device = defaultDevice
 		eventJoypadDown.axis = JOY_AXIS_1
